@@ -10,7 +10,7 @@ class Login extends StatelessWidget {
       child: Column(
         children: [
           const Text(
-            'Login to your account',
+            'LOGIN TO YOUR ACCOUNT',
             style: TextStyle(
               color: Color(0xFF1C2D40),
               fontSize: 16,
@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           const TextField(
             style: TextStyle(
@@ -41,20 +41,27 @@ class Login extends StatelessWidget {
               hintText: 'Password',
             ),
           ),
-          const SizedBox(
-            height: 5,
-          ),
           Align(
             alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  color: Color(0xFF6C6C6C),
-                  fontSize: 12,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w600,
+            child: SizedBox(
+              height: 30,
+              child: TextButton(
+                onPressed: () {
+                  print("Forgot Password");
+                },
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.zero,
+                  ),
+                ),
+                child: const Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    color: Color(0xFF6C6C6C),
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -78,13 +85,13 @@ class Login extends StatelessWidget {
               padding: MaterialStateProperty.all(
                 const EdgeInsets.symmetric(
                   horizontal: 40,
-                  vertical: 15,
+                  vertical: 10,
                 ),
               ),
             ),
             onPressed: () {},
             child: const Text(
-              'Log In',
+              'LOG IN',
               style: TextStyle(
                 fontSize: 16,
                 fontFamily: 'Inter',
