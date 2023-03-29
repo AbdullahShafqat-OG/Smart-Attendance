@@ -1,7 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_attendance/views/home_page.dart';
+import 'package:smart_attendance/views/home_screen.dart';
+import 'package:smart_attendance/views/login_page.dart';
+import 'package:smart_attendance/views/logo.dart';
 
-import './login.dart';
-import './logo.dart';
+final GlobalKey<NavigatorState> firstTabNavKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> secondTabNavKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> thirdTabNavKey = GlobalKey<NavigatorState>();
 
 void main() {
   runApp(const MainApp());
@@ -12,48 +18,32 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: const Color(0xFFF1F1F1),
-          hintStyle: const TextStyle(
-            color: Color(0xFF989898),
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w400,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          isDense: true,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 10,
-          ),
-        ),
-      ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      themeMode: ThemeMode.light,
+    return CupertinoApp(
       home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Center(
-              child: Logo(),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          shadowColor: Colors.white,
+          title: const Logo(
+            textSize: 24,
+          ),
+          centerTitle: true,
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Icon(
+                CupertinoIcons.person_crop_circle,
+                size: 30,
+              ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Login(),
           ],
         ),
+        body: const HomeScreen(),
       ),
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        DefaultMaterialLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
     );
   }
 }

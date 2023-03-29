@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({super.key});
+  final double? textSize;
+
+  const Logo({
+    Key? key,
+    this.textSize = 40,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Text.rich(
-      TextSpan(
+    return Text.rich(
+      const TextSpan(
         text: 'smart\n',
         children: [
           TextSpan(
@@ -19,8 +24,9 @@ class Logo extends StatelessWidget {
       ),
       textAlign: TextAlign.center,
       style: TextStyle(
+        color: Colors.black,
         fontFamily: 'SpaceGrotesk',
-        fontSize: 40,
+        fontSize: textSize,
         height: .85,
         fontWeight: FontWeight.w700,
       ),
